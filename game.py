@@ -33,7 +33,7 @@ def dessine_plateau(n):
     
         i += 1
 
-dessine_plateau(3)
+#dessine_plateau(3)
 
 def dessine_disque(nd, plateau, n):
     turtle.up()
@@ -57,3 +57,27 @@ def dessine_disque(nd, plateau, n):
 dessine_disque(3,0,3)
 dessine_disque(2,0,3)
 dessine_disque(1,0,3)
+
+def efface_disque(nd, plateau, n):
+    turtle.color(white)
+    turtle.up()
+    turtle.goto(-300,-200)
+    turtle.forward(20 + 15*(n-nd))
+    turtle.left(90)
+    turtle.forward(20 + 20*(n-nd))
+    turtle.right(90)
+
+    turtle.down()
+
+    turtle.forward(40 + 30*nd)
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.right(90)
+    turtle.forward(40 + 30*nd)
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.right(90)
+    
+efface_disque(3,0,3)
+efface_disque(2,0,3)
+efface_disque(1,0,3)
