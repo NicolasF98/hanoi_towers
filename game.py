@@ -22,6 +22,17 @@ def disque_superieur(plateau, numtour):
 
 print(disque_superieur(init(2),0))
 
+def position_disque(plateau, numdisque):
+    i, j = 0, 0
+    while (i != 2):
+        while (j != len(plateau)):
+            if (plateau[i][j] == numdisque):
+                return i, j
+            j += 1
+        i += 1
+    return -1
+
+#print(position_disque(init(5),5))
 
     #################### PARTIE GRAPHIQUE ####################
 
