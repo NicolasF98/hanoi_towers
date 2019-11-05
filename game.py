@@ -1,5 +1,15 @@
 import turtle
 
+def init(n):
+    config = list(range(1, n+1))
+    config.reverse()
+    plateau = [[],[],[]]
+    plateau[0] = list(config)
+    return plateau
+
+print(init(3))
+
+
 def dessine_plateau(n):
     turtle.up()
     turtle.goto(-300,-200)
@@ -54,12 +64,12 @@ def dessine_disque(nd, plateau, n):
     turtle.forward(20)
     turtle.right(90)
 
-dessine_disque(3,0,3)
-dessine_disque(2,0,3)
-dessine_disque(1,0,3)
+#dessine_disque(3,0,3)
+#dessine_disque(2,0,3)
+#dessine_disque(1,0,3)
 
 def efface_disque(nd, plateau, n):
-    turtle.color(white)
+    turtle.color("White")
     turtle.up()
     turtle.goto(-300,-200)
     turtle.forward(20 + 15*(n-nd))
@@ -77,7 +87,7 @@ def efface_disque(nd, plateau, n):
     turtle.right(90)
     turtle.forward(20)
     turtle.right(90)
-    
-efface_disque(3,0,3)
-efface_disque(2,0,3)
-efface_disque(1,0,3)
+
+#efface_disque(3,0,3)
+#efface_disque(2,0,3)
+#efface_disque(1,0,3)
