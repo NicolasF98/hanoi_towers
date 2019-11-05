@@ -15,7 +15,12 @@ def nombre_disques(plateau, numtour):
 print(nombre_disques(init(3),0))
 
 
+def disque_superieur(plateau, numtour):
+    if (len(plateau[numtour]) == 0):
+        return -1
+    return plateau[numtour][0]
 
+print(disque_superieur(init(2),0))
 
 
     #################### PARTIE GRAPHIQUE ####################
