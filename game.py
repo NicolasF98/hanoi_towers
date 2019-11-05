@@ -7,8 +7,18 @@ def init(n):
     plateau[0] = list(config)
     return plateau
 
-print(init(3))
+#print(init(3))
 
+def nombre_disques(plateau, numtour):
+    return len(plateau[numtour])
+
+print(nombre_disques(init(3),0))
+
+
+
+
+
+    #################### PARTIE GRAPHIQUE ####################
 
 def dessine_plateau(n):
     turtle.up()
