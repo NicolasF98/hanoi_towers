@@ -1,7 +1,7 @@
 # INF101: Projet - Les tours de Hanoi
-Université de Grenoble, Licence Sciences & Technologies, 1ère année semestre 1
+Université de Grenoble, Licence Sciences & Technologies, 1ère année semestre 1.
 
-UE INF101: Algorithmique et Programmation en Python
+UE INF101: Algorithmique et Programmation en Python.
 
 2019 - 2020
 
