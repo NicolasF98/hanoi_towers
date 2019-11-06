@@ -37,6 +37,7 @@ print(position_disque(init(5),5))
 def verifier_deplacement(plateau, nt1, nt2):
     
 
+
     #################### PARTIE GRAPHIQUE ####################
 
 def dessine_plateau(n):
