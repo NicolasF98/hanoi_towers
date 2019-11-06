@@ -35,7 +35,27 @@ def position_disque(plateau, numdisque):
 print(position_disque(init(5),5))
 
 def verifier_deplacement(plateau, nt1, nt2):
-    
+    if (len(plateau[nt1]) == 0):
+        return False
+    else:
+        if (len(plateau[nt2]) == 0):
+            return True
+        elif (len(plateau[nt2] != 0)):
+            if (disque_superieur(plateau,nt1) < disque_superieur(plateau,nt2)):
+               return True
+            else:
+                return False
+
+def verifier_victoire(plateau, n):
+    i = 0
+    while (i != n-1): 
+        if (plateau[3][i] > plateau[3][i+1]):
+            val = True
+        else:
+            val = False
+        i += 1
+    return val
+
 
 
     #################### PARTIE GRAPHIQUE ####################
