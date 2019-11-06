@@ -40,21 +40,27 @@ def verifier_deplacement(plateau, nt1, nt2):
     else:
         if (len(plateau[nt2]) == 0):
             return True
-        elif (len(plateau[nt2] != 0)):
+        elif (len(plateau[nt2]) != 0):
             if (disque_superieur(plateau,nt1) < disque_superieur(plateau,nt2)):
                return True
             else:
                 return False
+p = [[2],[3],[1]]
+print(verifier_deplacement(p,0,2))
+
 
 def verifier_victoire(plateau, n):
     i = 0
-    while (i != n-1): 
-        if (plateau[3][i] > plateau[3][i+1]):
+    while (i != n-2): 
+        if (plateau[2][i] > plateau[2][i+1]):
             val = True
         else:
             val = False
         i += 1
     return val
+
+p = [[], [], [3,2,1]]
+print(verifier_victoire(p, 3))
 
 
 
