@@ -25,7 +25,7 @@ UE INF101: Algorithmique et Programmation en Python
 - [x] 5 - Implémenter `verifier_deplacement`.
 - [x] 6 - Implémenter `verifier_victoire`.
 
-### ~Partie B: graphisme avec Turtle~
+### Partie B: graphisme avec Turtle
 
 - [x] 1 - Implémenter `dessine_plateau`.
 - [x] 2 - Implémenter `dessine_disque`.
@@ -33,21 +33,21 @@ UE INF101: Algorithmique et Programmation en Python
 - [ ] 4 - Implémenter `dessine_config`.
 - [ ] 5 - Implémenter `efface_tout`.
 
-### ~Partie C: interactions avec le joueur~
+### Partie C: interactions avec le joueur
 
 - [ ] 1 - Implémenter `lire_coords`.
 - [ ] 2 - Implémenter `jouer_un_coup` qui utilise la fonction numéro 1.
 - [ ] 3 - Implémenter `boucle_jeu`.
 - [ ] 4 - Implémenter un programme principal qui demande un nbr de disque souhaité et qui intialise le plateau, le dessine et fini par lancer le jeu.
   
-### ~Partie D: anulation de coups~
+### Partie D: anulation de coups
 
 - [ ] 1 - Implémenter `dernier_coup`.
 - [ ] 2 - Implémenter `annuler_dernier_coup`.
 - [ ] 3 - Modifier `boucle_jeu` afin d'autoriser les annulations.
 - [ ] 4 (BONUS) - Créer un système de sauvage de la partie en cours à l'aide du module pickle.
 
-### ~Partie E: fichier de score et temps de jeu~
+### Partie E: fichier de score et temps de jeu
 
 - [ ] 1 - Implémenter `score`.
 - [ ] 2 - Modifier le main afin de demander le nom du joueur en cas de victoire, il faudra utiliser la fonction `score`.
