@@ -67,8 +67,34 @@ p = [[], [], [3,2,1]]
     #################### PARTIE GRAPHIQUE ####################
 
 def dessine_plateau(n):
+    #position initial
     turtle.up()
     turtle.goto(-300,-200)
     turtle.down()
 
-    
+    #plateau
+    turtle.forward( (20*(n+1)) + ((40 + (30*(n-1)))*n) )
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.right(90)
+    turtle.forward( (20*(n+1)) + ((40 + (30*(n-1)))*n) )
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.right(90)
+
+    #tours
+    i = 0
+    while(i != n):
+        turtle.forward( 20 + (40 + (30*(n-1)))/2 )
+        turtle.left(90)
+        turtle.forward( 20 + (40 + (30*(n-1)))/2 )
+        turtle.right(90)
+        turtle.forward(6)
+        turtle.right(90)
+        turtle.forward( 20 + (40 + (30*(n-1)))/2 )
+        turtle.left(90)
+        turtle.forward( (40 + (30*(n-1)))/2 )
+        i += 1
+
+
+print(dessine_plateau(4))
