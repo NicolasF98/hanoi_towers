@@ -27,7 +27,7 @@ UE INF101: Algorithmique et Programmation en Python.
 
 ### Partie B: graphisme avec Turtle
 
-- [ ] 1 - Implémenter `dessine_plateau`.
+- [x] 1 - Implémenter `dessine_plateau`.
 - [ ] 2 - Implémenter `dessine_disque`.
 - [ ] 3 - Implémenter `efface_disques`.
 - [ ] 4 - Implémenter `dessine_config`.
