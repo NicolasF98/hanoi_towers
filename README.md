@@ -28,14 +28,14 @@ UE INF101: Algorithmique et Programmation en Python.
 ### Partie B: graphisme avec Turtle
 
 - [x] 1 - Implémenter `dessine_plateau`.
-- [ ] 2 - Implémenter `dessine_disque`.
+- [x] 2 - Implémenter `dessine_disque`.
 - [ ] 3 - Implémenter `efface_disques`.
 - [ ] 4 - Implémenter `dessine_config`.
 - [ ] 5 - Implémenter `efface_tout`.
 
 ### Partie C: interactions avec le joueur
 
-- [ ] 1 - Implémenter `lire_coords`.
+- [x] 1 - Implémenter `lire_coords`.
 - [ ] 2 - Implémenter `jouer_un_coup` qui utilise la fonction numéro 1.
 - [ ] 3 - Implémenter `boucle_jeu`.
 - [ ] 4 - Implémenter un programme principal qui demande un nbr de disque souhaité et qui intialise le plateau, le dessine et fini par lancer le jeu.
