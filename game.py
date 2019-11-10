@@ -97,6 +97,56 @@ def dessine_plateau(n):
         i += 1
 
 
-print(dessine_plateau(4))
+#print(dessine_plateau(3))
 
-#def dessine_disque(nd, plateau, n):
+def dessine_disque(nd, plateau, n):
+    i, j, sortie = 0, 0, 0
+    while (i < 3 and sortie == 0):
+        while (j < n and sortie == 0):
+            if (nd == plateau[i][j]):
+                coord_x = (20 + (((40 + (30*(n-1)))/2) * i))
+                coord_y = (20 * j)
+                sortie = 1
+            j += 1
+        j = 0
+        i += 1
+    turtle.up()
+    turtle.goto(-300 + coord_x, - 200 + coord_y)
+    turtle.down()
+    turtle.forward(20 + (40 + (30*(nd-1))))
+    turtle.left(90)
+    turtle.forward(20)
+    turtle.left(90)
+    turtle.forward(20 + (40 + (30*(nd-1))))
+    turtle.left(90)
+    turtle.forward(20)
+    turtle.left(90)
+
+p = [[2,1],[],[]]
+#print(dessine_disque(2, p, 2))
+#print(dessine_disque(1, p, 2))
+
+
+
+    #################### PARTIE INTERACTION JOUEUR ####################
+
+def lire_coords(plateau):
+    valide = 0
+    while (valide != 1):
+        t_dep = int(input("Choisis tour de départ: "))
+        if (0 <= t_dep <= 2 and ((len(plateau[t_dep]) != 0))):
+            valide = 1
+
+    while( valide != 0):
+        t_arriv = int(input("Choisis tour d'arrivée: "))
+        if (0 <= t_arriv <= 2):
+            if (len(plateau[t_arriv]) == 0):
+                valide = 0
+            elif (plateau[t_dep][len(plateau[t_dep])-1] < plateau[t_arriv][len(plateau[t_arriv])-1]):
+                valide = 0
+            elif (valide != 0):
+                t_arriv = int(input("Choisis tour d'arrivée: "))
+    return t_dep, t_arriv
+
+p = [[2,1],[],[3]]
+print(lire_coords(p))
