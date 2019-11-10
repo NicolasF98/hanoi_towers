@@ -132,11 +132,12 @@ p = [[2,1],[],[]]
 
 def lire_coords(plateau):
     valide = 0
+    coords = []
     while (valide != 1):
         t_dep = int(input("Choisis tour de départ: "))
         if (0 <= t_dep <= 2 and ((len(plateau[t_dep]) != 0))):
             valide = 1
-
+    coords.append(t_dep)
     while (valide != 0):
         t_arriv = int(input("Choisis tour d'arrivée: "))
         if (0 <= t_arriv <= 2):
@@ -144,8 +145,16 @@ def lire_coords(plateau):
                 valide = 0
             elif (plateau[t_dep][len(plateau[t_dep])-1] < plateau[t_arriv][len(plateau[t_arriv])-1]):
                 valide = 0
-                
-    return t_dep, t_arriv
+    coords.append(t_arriv)
+    return coords
 
 p = [[2,1],[],[3]]
-print(lire_coords(p))
+#print(lire_coords(p))
+
+def jouer_un_coup(plateau, n):
+    coords = lire_coords(plateau)
+    dessine_disque( plateau [coords[1]] [len(plateau[coords[1]])-1] , p , 3 )
+    print(plateau [coords[1]] [len(plateau[coords[1]])-1] )
+
+#jouer_un_coup(p, 3)
+    
