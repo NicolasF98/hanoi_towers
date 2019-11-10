@@ -73,18 +73,18 @@ def dessine_plateau(n):
     turtle.down()
 
     #plateau
-    turtle.forward( (20*(n+1)) + ((40 + (30*(n-1)))*n) )
+    turtle.forward( (20*4) + ((40 + (30*(n-1)))*3) )
     turtle.right(90)
     turtle.forward(20)
     turtle.right(90)
-    turtle.forward( (20*(n+1)) + ((40 + (30*(n-1)))*n) )
+    turtle.forward( (20*4) + ((40 + (30*(n-1)))*3) )
     turtle.right(90)
     turtle.forward(20)
     turtle.right(90)
 
     #tours
     i = 0
-    while(i != n):
+    while(i != 3):
         turtle.forward( 20 + (40 + (30*(n-1)))/2 )
         turtle.left(90)
         turtle.forward( 20 + (40 + (30*(n-1)))/2 )
@@ -98,3 +98,5 @@ def dessine_plateau(n):
 
 
 print(dessine_plateau(4))
+
+#def dessine_disque(nd, plateau, n):
