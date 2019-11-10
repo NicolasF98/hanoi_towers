@@ -137,15 +137,14 @@ def lire_coords(plateau):
         if (0 <= t_dep <= 2 and ((len(plateau[t_dep]) != 0))):
             valide = 1
 
-    while( valide != 0):
+    while (valide != 0):
         t_arriv = int(input("Choisis tour d'arrivée: "))
         if (0 <= t_arriv <= 2):
             if (len(plateau[t_arriv]) == 0):
                 valide = 0
             elif (plateau[t_dep][len(plateau[t_dep])-1] < plateau[t_arriv][len(plateau[t_arriv])-1]):
                 valide = 0
-            elif (valide != 0):
-                t_arriv = int(input("Choisis tour d'arrivée: "))
+                
     return t_dep, t_arriv
 
 p = [[2,1],[],[3]]
