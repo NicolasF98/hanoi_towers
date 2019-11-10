@@ -104,14 +104,14 @@ def dessine_disque(nd, plateau, n):
     while (i < 3 and sortie == 0):
         while (j < n and sortie == 0):
             if (nd == plateau[i][j]):
-                coord_x = (20 + (((40 + (30*(n-1)))/2) * i))
-                coord_y = (20 * j)
+                coord_x = (20 + (40 + 30*nd)/2)  
+                coord_y = (20 * nd-n)
                 sortie = 1
             j += 1
         j = 0
         i += 1
     turtle.up()
-    turtle.goto(-300 + coord_x, - 200 + coord_y)
+    turtle.goto(-300 - coord_x, - 200 - coord_y)
     turtle.down()
     turtle.forward(20 + (40 + (30*(nd-1))))
     turtle.left(90)
@@ -122,9 +122,10 @@ def dessine_disque(nd, plateau, n):
     turtle.forward(20)
     turtle.left(90)
 
-p = [[2,1],[],[]]
-#print(dessine_disque(2, p, 2))
-#print(dessine_disque(1, p, 2))
+p = [[2,1,3],[],[]]
+print(dessine_disque(2, p, 3))
+print(dessine_disque(1, p, 3))
+print(dessine_disque(3, p, 3))
 
 
 
@@ -148,7 +149,6 @@ def lire_coords(plateau):
     coords.append(t_arriv)
     return coords
 
-p = [[2,1],[],[3]]
 #print(lire_coords(p))
 
 def jouer_un_coup(plateau, n):
