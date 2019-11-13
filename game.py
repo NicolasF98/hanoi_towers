@@ -97,21 +97,21 @@ def dessine_plateau(n):
         i += 1
 
 
-#print(dessine_plateau(3))
+print(dessine_plateau(3))
 
 def dessine_disque(nd, plateau, n):
     i, j, sortie = 0, 0, 0
     while (i < 3 and sortie == 0):
-        while (j < n and sortie == 0):
+        while (j < len(plateau[i]) and sortie == 0):
             if (nd == plateau[i][j]):
-                coord_x = (20 + (40 + 30*nd)/2)  
-                coord_y = (20 * nd-n)
+                coord_x = (20 + 15*(n-nd))                          #+ ((40 + 30*nd))) + ((20 + (40 + 30*n)) * i)
+                coord_y = (20 * (n-nd))
                 sortie = 1
             j += 1
         j = 0
         i += 1
     turtle.up()
-    turtle.goto(-300 - coord_x, - 200 - coord_y)
+    turtle.goto((-300) + coord_x, (-200) + coord_y)
     turtle.down()
     turtle.forward(20 + (40 + (30*(nd-1))))
     turtle.left(90)
@@ -122,10 +122,11 @@ def dessine_disque(nd, plateau, n):
     turtle.forward(20)
     turtle.left(90)
 
-p = [[2,1,3],[],[]]
-print(dessine_disque(2, p, 3))
-print(dessine_disque(1, p, 3))
-print(dessine_disque(3, p, 3))
+p = [[2,3],[1],[]]
+dessine_disque(2, p, 3)
+dessine_disque(1, p, 3)
+dessine_disque(3, p, 3)
+
 
 
 
