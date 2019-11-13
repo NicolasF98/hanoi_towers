@@ -67,17 +67,18 @@ p = [[], [], [3,2,1]]
     #################### PARTIE GRAPHIQUE ####################
 
 def dessine_plateau(n):
+    turtle.speed('fastest')
     #position initial
     turtle.up()
     turtle.goto(-300,-200)
     turtle.down()
 
     #plateau
-    turtle.forward( (20*4) + ((40 + (30*(n-1)))*3) )
+    turtle.forward( (20*4) + ((40 + (30*(n-1)))*3) + (6*3))
     turtle.right(90)
     turtle.forward(20)
     turtle.right(90)
-    turtle.forward( (20*4) + ((40 + (30*(n-1)))*3) )
+    turtle.forward( (20*4) + ((40 + (30*(n-1)))*3) + (6*3))
     turtle.right(90)
     turtle.forward(20)
     turtle.right(90)
@@ -85,26 +86,27 @@ def dessine_plateau(n):
     #tours
     i = 0
     while(i != 3):
-        turtle.forward( 20 + (40 + (30*(n-1)))/2 )
+        turtle.forward(20 + ((40 + (30*(n-1)))/2))
         turtle.left(90)
-        turtle.forward( 20 + (40 + (30*(n-1)))/2 )
+        turtle.forward(20 + (40 + (30*(n-1)))/2)
         turtle.right(90)
         turtle.forward(6)
         turtle.right(90)
         turtle.forward( 20 + (40 + (30*(n-1)))/2 )
         turtle.left(90)
-        turtle.forward( (40 + (30*(n-1)))/2 )
+        turtle.forward((40 + (30*(n-1)))/2 )
         i += 1
 
 
 print(dessine_plateau(3))
 
 def dessine_disque(nd, plateau, n):
+    turtle.speed('fastest')
     i, j, sortie = 0, 0, 0
     while (i < 3 and sortie == 0):
         while (j < len(plateau[i]) and sortie == 0):
             if (nd == plateau[i][j]):
-                coord_x = (20 + 15*(n-nd)) + (((40 + 30*n)))* i
+                coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*i
                 if (len(plateau[i]) == 1):
                     coord_y = 0
                 else:
@@ -113,22 +115,25 @@ def dessine_disque(nd, plateau, n):
             j += 1
         j = 0
         i += 1
+
     turtle.up()
     turtle.goto((-300) + coord_x, (-200) + coord_y)
     turtle.down()
-    turtle.forward(20 + (40 + (30*(nd-1))))
+    
     turtle.left(90)
     turtle.forward(20)
-    turtle.left(90)
-    turtle.forward(20 + (40 + (30*(nd-1))))
-    turtle.left(90)
+    turtle.right(90)
+    turtle.forward((40 + (30*(nd-1))))
+    turtle.right(90)
     turtle.forward(20)
     turtle.left(90)
 
-p = [[3],[1],[2]]
+p = [[],[1,2,3],[]]
+#p = [[],[],[1,2,3]]
+#p = [[1,2,3],[],[]]
 dessine_disque(2, p, 3)
-dessine_disque(1, p, 3)
 dessine_disque(3, p, 3)
+dessine_disque(1, p, 3)
 
 
 
@@ -160,5 +165,5 @@ def jouer_un_coup(plateau, n):
     dessine_disque( plateau [coords[1]] [len(plateau[coords[1]])-1] , p , 3 )
     print(plateau [coords[1]] [len(plateau[coords[1]])-1] )
 
-#jouer_un_coup(p, 3)
+jouer_un_coup(p, 3)
     
