@@ -172,8 +172,24 @@ def dessine_config(plateau, n):
                 dessine_disque(plateau[i][j], plateau, n)
             j += 1
         i += 1
+
 p = [[],[1,2,3],[]]
 dessine_config(p, 3)
+
+def efface_tout(plateau, n):
+    turtle.color('white')
+    i, j = 0, 0
+    while (i < 3):
+        while (j < len(plateau[i])):
+            if (len(plateau[i]) != 0):
+                dessine_disque(plateau[i][j], plateau, n)
+            j += 1
+        i += 1
+p = [[],[1,2,3],[]]
+efface_tout(p, 3)
+
+    
+
 
 
 
