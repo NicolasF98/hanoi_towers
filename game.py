@@ -65,6 +65,7 @@ p = [[], [], [3,2,1]]
 
 
     #################### PARTIE GRAPHIQUE ####################
+    # reste à ajouter des couleurs, ainsi qu'une image de fond
 
 def dessine_plateau(n):
     turtle.speed('fastest')

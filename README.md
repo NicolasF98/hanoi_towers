@@ -31,7 +31,9 @@ UE INF101: Algorithmique et Programmation en Python.
 - [x] 2 - Implémenter `dessine_disque`.
 - [x] 3 - Implémenter `efface_disques`.
 - [x] 4 - Implémenter `dessine_config`.
-- [ ] 5 - Implémenter `efface_tout`.
+- [x] 5 - Implémenter `efface_tout`.
+- [ ] 6 (BONUS) - Colorer le plateau et les tours
+- [ ] 7 (BONUS) - Ajouter une image de fond
 
 ### Partie C: interactions avec le joueur
 
