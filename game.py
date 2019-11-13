@@ -135,6 +135,34 @@ dessine_disque(2, p, 3)
 dessine_disque(3, p, 3)
 dessine_disque(1, p, 3)
 
+def efface_disque(nd, plateau, n):
+    turtle.color('white')
+    turtle.speed('fastest')
+    i, j, sortie = 0, 0, 0
+    while (i < 3 and sortie == 0):
+        while (j < len(plateau[i]) and sortie == 0):
+            if (nd == plateau[i][j]):
+                coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*i
+                if (len(plateau[i]) == 1):
+                    coord_y = 0
+                else:
+                    coord_y = (20 * (n-nd))
+                sortie = 1
+            j += 1
+        j = 0
+        i += 1
+
+    turtle.up()
+    turtle.goto((-300) + coord_x, (-200) + coord_y)
+    turtle.down()
+    
+    turtle.left(90)
+    turtle.forward(20)
+    turtle.right(90)
+    turtle.forward((40 + (30*(nd-1))))
+    turtle.right(90)
+    turtle.forward(20)
+    turtle.left(90)
 
 
 
