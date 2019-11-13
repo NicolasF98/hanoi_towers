@@ -131,9 +131,9 @@ def dessine_disque(nd, plateau, n):
 p = [[],[1,2,3],[]]
 #p = [[],[],[1,2,3]]
 #p = [[1,2,3],[],[]]
-dessine_disque(2, p, 3)
-dessine_disque(3, p, 3)
-dessine_disque(1, p, 3)
+#dessine_disque(2, p, 3)
+#dessine_disque(3, p, 3)
+#dessine_disque(1, p, 3)
 
 def efface_disque(nd, plateau, n):
     turtle.color('white')
@@ -163,6 +163,17 @@ def efface_disque(nd, plateau, n):
     turtle.right(90)
     turtle.forward(20)
     turtle.left(90)
+
+def dessine_config(plateau, n):
+    i, j = 0, 0
+    while (i < 3):
+        while (j < len(plateau[i])):
+            if (len(plateau[i]) != 0):
+                dessine_disque(plateau[i][j], plateau, n)
+            j += 1
+        i += 1
+p = [[],[1,2,3],[]]
+dessine_config(p, 3)
 
 
 
