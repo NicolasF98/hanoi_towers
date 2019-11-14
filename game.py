@@ -102,7 +102,8 @@ def dessine_plateau(n):
 print(dessine_plateau(3))
 
 def dessine_disque(nd, plateau, n):
-    turtle.speed('fastest')
+    turtle.color('black')
+    #turtle.speed('fastest')
     i, j, sortie = 0, 0, 0
     while (i < 3 and sortie == 0):
         while (j < len(plateau[i]) and sortie == 0):
@@ -138,7 +139,7 @@ p = [[],[1,2,3],[]]
 
 def efface_disque(nd, plateau, n):
     turtle.color('white')
-    turtle.speed('fastest')
+    #turtle.speed('fastest')
     i, j, sortie = 0, 0, 0
     while (i < 3 and sortie == 0):
         while (j < len(plateau[i]) and sortie == 0):
@@ -187,11 +188,7 @@ def efface_tout(plateau, n):
             j += 1
         i += 1
 p = [[],[1,2,3],[]]
-efface_tout(p, 3)
-
-    
-
-
+#efface_tout(p, 3)
 
 
     #################### PARTIE INTERACTION JOUEUR ####################
@@ -214,12 +211,17 @@ def lire_coords(plateau):
     coords.append(t_arriv)
     return coords
 
+p = [[],[1,2,3],[]]
+
+print(p)
 #print(lire_coords(p))
 
 def jouer_un_coup(plateau, n):
     coords = lire_coords(plateau)
-    dessine_disque( plateau [coords[1]] [len(plateau[coords[1]])-1] , p , 3 )
-    print(plateau [coords[1]] [len(plateau[coords[1]])-1] )
+    val = plateau[coords[0]][0]
+    efface_disque(val, plateau,n)
+    plateau[coords[0]].remove(val)
+    plateau[coords[1]].append(val)
+    dessine_disque(val, plateau, n )
 
-jouer_un_coup(p, 3)
-    
+jouer_un_coup(p,3)

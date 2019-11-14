@@ -38,7 +38,7 @@ UE INF101: Algorithmique et Programmation en Python.
 ### Partie C: interactions avec le joueur
 
 - [x] 1 - Implémenter `lire_coords`.
-- [ ] 2 - Implémenter `jouer_un_coup` qui utilise la fonction numéro 1.
+- [x] 2 - Implémenter `jouer_un_coup`.
 - [ ] 3 - Implémenter `boucle_jeu`.
 - [ ] 4 - Implémenter un programme principal qui demande un nbr de disque souhaité et qui intialise le plateau, le dessine et fini par lancer le jeu.
   
