@@ -50,19 +50,14 @@ p = [[2],[3],[1]]
 
 
 def verifier_victoire(plateau, n):
-    i = 0
-    while (i != n-2): 
-        if (plateau[2][i] > plateau[2][i+1]):
-            val = True
-        else:
-            val = False
+    p = [[], [], []]
+    i = 1
+    while (i <= n):
+        p[2].append(i)
         i += 1
-    return val
-
-p = [[], [], [3,2,1]]
-#print(verifier_victoire(p, 3))
-
-
+    if (p == plateau):
+        return True
+    return False
 
     #################### PARTIE GRAPHIQUE ####################
     # reste à ajouter des couleurs, ainsi qu'une image de fond
@@ -175,8 +170,8 @@ def dessine_config(plateau, n):
             j += 1
         i += 1
 
-p = [[],[1,2,3],[]]
-dessine_config(p, 3)
+#p = [[],[1,2,3],[]]
+#dessine_config(p, 3)
 
 def efface_tout(plateau, n):
     turtle.color('white')
@@ -187,7 +182,7 @@ def efface_tout(plateau, n):
                 dessine_disque(plateau[i][j], plateau, n)
             j += 1
         i += 1
-p = [[],[1,2,3],[]]
+#p = [[],[1,2,3],[]]
 #efface_tout(p, 3)
 
 
@@ -211,7 +206,7 @@ def lire_coords(plateau):
     coords.append(t_arriv)
     return coords
 
-p = [[],[1,2,3],[]]
+#p = [[],[1,2,3],[]]
 
 print(p)
 #print(lire_coords(p))
@@ -224,4 +219,13 @@ def jouer_un_coup(plateau, n):
     plateau[coords[1]].append(val)
     dessine_disque(val, plateau, n )
 
-jouer_un_coup(p,3)
+#jouer_un_coup(p,3)
+p = [[],[1],[2,3]]
+dessine_config(p, 3)
+def boucle_jeu(plateau, n):
+    win = verifier_victoire(plateau,n)
+    while (win != True):
+        jouer_un_coup(plateau,n)
+        win = verifier_victoire(plateau,n)
+
+boucle_jeu(p,3)
