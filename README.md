@@ -39,7 +39,7 @@ UE INF101: Algorithmique et Programmation en Python.
 
 - [x] 1 - Implémenter `lire_coords`.
 - [x] 2 - Implémenter `jouer_un_coup`.
-- [ ] 3 - Implémenter `boucle_jeu`.
+- [x] 3 - Implémenter `boucle_jeu`.
 - [ ] 4 - Implémenter un programme principal qui demande un nbr de disque souhaité et qui intialise le plateau, le dessine et fini par lancer le jeu.
   
 ### Partie D: anulation de coups

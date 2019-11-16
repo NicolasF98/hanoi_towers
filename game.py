@@ -50,12 +50,13 @@ p = [[2],[3],[1]]
 
 
 def verifier_victoire(plateau, n):
-    p = [[], [], []]
+    p = [[], [], [1,2,3]]
+    p1 = [[], [], [3,2,1]]
     i = 1
     while (i <= n):
         p[2].append(i)
         i += 1
-    if (p == plateau):
+    if (p == plateau or p1 == plateau):
         return True
     return False
 
@@ -107,7 +108,7 @@ def dessine_disque(nd, plateau, n):
                 if (len(plateau[i]) == 1):
                     coord_y = 0
                 elif (len(plateau[i]) == 2):
-                    coord_y = 20
+                    coord_y = 20*(n-nd)
                 else:
                     coord_y = (20 * (n-nd))
                 sortie = 1
@@ -127,7 +128,7 @@ def dessine_disque(nd, plateau, n):
     turtle.forward(20)
     turtle.left(90)
 
-p = [[],[1,2,3],[]]
+#p = [[],[1,2,3],[]]
 #p = [[],[],[1,2,3]]
 #p = [[1,2,3],[],[]]
 #dessine_disque(2, p, 3)
@@ -170,6 +171,7 @@ def dessine_config(plateau, n):
             if (len(plateau[i]) != 0):
                 dessine_disque(plateau[i][j], plateau, n)
             j += 1
+        j = 0
         i += 1
 
 #p = [[],[1,2,3],[]]
@@ -184,9 +186,6 @@ def efface_tout(plateau, n):
                 dessine_disque(plateau[i][j], plateau, n)
             j += 1
         i += 1
-#p = [[],[1,2,3],[]]
-#efface_tout(p, 3)
-
 
     #################### PARTIE INTERACTION JOUEUR ####################
 
@@ -208,11 +207,6 @@ def lire_coords(plateau):
     coords.append(t_arriv)
     return coords
 
-#p = [[],[1,2,3],[]]
-
-print(p)
-#print(lire_coords(p))
-
 def jouer_un_coup(plateau, n):
     coords = lire_coords(plateau)
     val = plateau[coords[0]][0]
@@ -224,12 +218,13 @@ def jouer_un_coup(plateau, n):
 #jouer_un_coup(p,3)
 #p = [[1,2,3],[],[]]
 #p = [[],[1,2,3],[]]
-p = [[],[1],[2,3]]
+p = [[2],[1],[3]]
 dessine_config(p, 3)
 def boucle_jeu(plateau, n):
     win = verifier_victoire(plateau,n)
     while (win != True):
         jouer_un_coup(plateau,n)
+        print(plateau)
         win = verifier_victoire(plateau,n)
 
 boucle_jeu(p,3) 
