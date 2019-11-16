@@ -106,6 +106,8 @@ def dessine_disque(nd, plateau, n):
                 coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*i
                 if (len(plateau[i]) == 1):
                     coord_y = 0
+                elif (len(plateau[i]) == 2):
+                    coord_y = 20
                 else:
                     coord_y = (20 * (n-nd))
                 sortie = 1
@@ -220,6 +222,8 @@ def jouer_un_coup(plateau, n):
     dessine_disque(val, plateau, n )
 
 #jouer_un_coup(p,3)
+#p = [[1,2,3],[],[]]
+#p = [[],[1,2,3],[]]
 p = [[],[1],[2,3]]
 dessine_config(p, 3)
 def boucle_jeu(plateau, n):
