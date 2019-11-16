@@ -232,4 +232,4 @@ def boucle_jeu(plateau, n):
         jouer_un_coup(plateau,n)
         win = verifier_victoire(plateau,n)
 
-boucle_jeu(p,3)
+boucle_jeu(p,3) 
