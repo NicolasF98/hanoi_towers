@@ -94,8 +94,7 @@ def dessine_plateau(n):
         turtle.forward((40 + (30*(n-1)))/2 )
         i += 1
 
-
-print(dessine_plateau(3))
+#print(dessine_plateau(3))
 
 def dessine_disque(nd, plateau, n):
     turtle.color('black')
@@ -218,13 +217,25 @@ def jouer_un_coup(plateau, n):
 #jouer_un_coup(p,3)
 #p = [[1,2,3],[],[]]
 #p = [[],[1,2,3],[]]
-p = [[2],[1],[3]]
-dessine_config(p, 3)
+#p = [[2],[1],[3]]
+#dessine_config(p, 3)
+
 def boucle_jeu(plateau, n):
     win = verifier_victoire(plateau,n)
-    while (win != True):
+    cpt = 0 #compteur de coups joué
+    cpt_max = 10 #on initialise le nbr de coup max à 10
+    while ((win != True) and (cpt < cpt_max)):
         jouer_un_coup(plateau,n)
         print(plateau)
         win = verifier_victoire(plateau,n)
+        cpt += 1
+    print("Formidable ! tu as gagné en:",cpt,", tu es vraiment beaucoup trop fort.")
 
-boucle_jeu(p,3) 
+def main():
+    n = int(input("Avec combien de disque souhaite tu jouer ?"))
+    liste_plateau = init(n)
+    dessine_plateau(n)
+    dessine_config(liste_plateau, n)
+    boucle_jeu(liste_plateau, n)
+
+main()
