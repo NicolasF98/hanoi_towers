@@ -107,7 +107,7 @@ def dessine_disque(nd, plateau, n):
                 if (len(plateau[i]) == 1):
                     coord_y = 0
                 elif (len(plateau[i]) == 2):
-                    coord_y = 20*(n-nd)
+                    coord_y = 20*(len(plateau[i])-1)
                 else:
                     coord_y = (20 * (n-nd))
                 sortie = 1
@@ -144,6 +144,8 @@ def efface_disque(nd, plateau, n):
                 coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*i
                 if (len(plateau[i]) == 1):
                     coord_y = 0
+                elif (len(plateau[i]) == 2):
+                    coord_y = 20*(len(plateau[i])-1)
                 else:
                     coord_y = (20 * (n-nd))
                 sortie = 1
@@ -208,7 +210,7 @@ def lire_coords(plateau):
 
 def jouer_un_coup(plateau, n):
     coords = lire_coords(plateau)
-    val = plateau[coords[0]][0]
+    val = plateau[coords[0]][len(plateau[coords[0]])-1]
     efface_disque(val, plateau,n)
     plateau[coords[0]].remove(val)
     plateau[coords[1]].append(val)
@@ -229,10 +231,10 @@ def boucle_jeu(plateau, n):
         print(plateau)
         win = verifier_victoire(plateau,n)
         cpt += 1
-    print("Formidable ! tu as gagné en:",cpt,", tu es vraiment beaucoup trop fort.")
+    print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
 
 def main():
-    n = int(input("Avec combien de disque souhaite tu jouer ?"))
+    n = int(input("Avec combien de disque souhaites-tu jouer ? "))
     liste_plateau = init(n)
     dessine_plateau(n)
     dessine_config(liste_plateau, n)
