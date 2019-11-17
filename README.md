@@ -42,7 +42,7 @@ UE INF101: Algorithmique et Programmation en Python.
 - [x] 3 - Implémenter `boucle_jeu`.
 - [x] 3 (OPTION 1) - Implémenter un nbr de coup max à jouer.
 - [ ] 3 (OPTION 2) - Implémenter une option d'abandon.
-- [ ] 4 - Implémenter un programme principal qui demande un nbr de disque souhaité et qui intialise le plateau, le dessine et fini par lancer le jeu.
+- [x] 4 - Implémenter un programme principal qui demande un nbr de disque souhaité et qui intialise le plateau, le dessine et fini par lancer le jeu.
   
 ### Partie D: anulation de coups
 
