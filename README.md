@@ -1,3 +1,9 @@
+# Rapport
+Faire un CR des difficultées rencontrés et des solutions trouvé et expliquer la repartition des taches.
+# Code
+Faire des fichiers.py pour chaque partie
+Commenter le code
+
 # INF101: Projet - Les tours de Hanoi
 Université de Grenoble, Licence Sciences & Technologies, 1ère année semestre 1.
 
@@ -14,7 +20,7 @@ UE INF101: Algorithmique et Programmation en Python.
 
 ## Deadlines
 
-**8 Décembre 2019 à 23h59**
+**Vendredi 6 Décembre 2019 à 23h59**
 
 ### ~Partie A: plateau de jeu et listes~
 
