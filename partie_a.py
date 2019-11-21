@@ -1,4 +1,4 @@
-import turtle
+#PARTIE A: Plateau de et listes
 
 def init(n):
     #on créer une variable config_init qui contient une liste des nombre de 1 à n.
@@ -9,7 +9,7 @@ def init(n):
 
     #creation d'une liste de 3 liste qui représente notre plateau et ses 3 tours.
     plateau = [[],[],[]]
-    
+
     #on ajoute à l'indice 0 (donc à la tour 1) la liste config_init, notre plateau est donc bien initialisé.
     plateau[0] = list(config_init)
     return plateau
