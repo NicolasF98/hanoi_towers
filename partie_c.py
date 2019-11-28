@@ -1,4 +1,5 @@
-import partie_b
+from partie_b import *
+from partie_a import *
 
 
 def lire_coords(plateau):
