@@ -6,12 +6,12 @@ import turtle
 turtle.speed('fastest')
 
 def dessine_plateau(n):
-    #position initial
+    #position initial de notre plateau
     turtle.up()
     turtle.goto(-300,-200)
     turtle.down()
 
-    #plateau
+    #dessin du plateau
     turtle.forward( (20*4) + ((40 + (30*(n-1)))*3) + (6*3))
     turtle.right(90)
     turtle.forward(20)
@@ -21,7 +21,7 @@ def dessine_plateau(n):
     turtle.forward(20)
     turtle.right(90)
 
-    #tours
+    #dessin des tours
     i = 0
     while(i != 3):
         turtle.forward(20 + ((40 + (30*(n-1)))/2))
@@ -36,26 +36,48 @@ def dessine_plateau(n):
         i += 1
 
 def dessine_disque(nd, plateau, n):
-    i, j, sortie = 0, 0, 0
-    while (i < 3 and sortie == 0):
-        while (j < len(plateau[i]) and sortie == 0):
-            if (nd == plateau[i][j]):
-                coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*i
-                if (len(plateau[i]) == 1):
+    #initialisation de 3 variables à 0.
+    #tour correspond à l'indice de tour.
+    #disque à l'indice du disque.
+    #sortie nous sert de condition de sortie.
+    tour, disque, sortie = 0, 0, 0
+
+    #on va chercher la position initiale de notre disque.
+    #on boucle temps qu'on est sur une de nos 3 tours et 
+    #que la condition de sortie n'est pas valide.
+    while (tour < 3 and sortie == 0):
+
+        #on parcour toutes les positions possible de disque sur une tour précise.
+        while (disque < len(plateau[tour]) and sortie == 0):
+
+            #si on trouve notre disque
+            if (nd == plateau[tour][disque]):
+
+                #la coord initial en x est alors:
+                coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*tour
+
+                #si notre tour à 1 disque alors sa position en y est:
+                if (len(plateau[tour]) == 1):
                     coord_y = 0
-                elif (len(plateau[i]) == 2):
-                    coord_y = 20*(len(plateau[i])-1)
+                
+                #si notre tour à 2 disque alors sa position en y est:
+                elif (len(plateau[tour]) == 2):
+                    coord_y = 20*(len(plateau[tour])-1)
+
+                #sinon sa position en y est:
                 else:
                     coord_y = (20 * (n-nd))
                 sortie = 1
-            j += 1
+            disque += 1
         j = 0
-        i += 1
+        tour += 1
 
+    #on se deplace à la position initiale du disque
     turtle.up()
     turtle.goto((-300) + coord_x, (-200) + coord_y)
     turtle.down()
     
+    #on dessine le disque
     turtle.left(90)
     turtle.forward(20)
     turtle.right(90)
