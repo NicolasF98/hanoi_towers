@@ -94,8 +94,8 @@ def dessine_disque(nd, plateau, n):
 #dessine_disque(1, p, 3)
 
 def efface_disque(nd, plateau, n):
+    #on re-utilise la fonction dessine_disque, mais on dessine en blanc
     turtle.color('white')
-    #turtle.speed('fastest')
     i, j, sortie = 0, 0, 0
     while (i < 3 and sortie == 0):
         while (j < len(plateau[i]) and sortie == 0):
@@ -126,24 +126,25 @@ def efface_disque(nd, plateau, n):
     turtle.color('black')
 
 def dessine_config(plateau, n):
-    i, j = 0, 0
-    while (i < 3):
-        while (j < len(plateau[i])):
-            if (len(plateau[i]) != 0):
-                dessine_disque(plateau[i][j], plateau, n)
-            j += 1
-        j = 0
-        i += 1
+    #on initialise notre index tour et disque à 0.
+    tour, disque = 0, 0
 
-#p = [[],[1,2,3],[]]
-#dessine_config(p, 3)
+    #on parcours toutes nos tours.
+    while (tour < 3):
+
+        #on dessine tous nos disques.
+        while (disque < len(plateau[tour])):
+            if (len(plateau[tour]) != 0):
+                dessine_disque(plateau[tour][disque], plateau, n)
+            disque += 1
+        
+        #on reinitilise notre variable disque et on passe à la tour suivante.
+        disque = 0
+        tour += 1
 
 def efface_tout(plateau, n):
+    #on change la couleur en blanc afin de pouvoir effacer.
     turtle.color('white')
-    i, j = 0, 0
-    while (i < 3):
-        while (j < len(plateau[i])):
-            if (len(plateau[i]) != 0):
-                dessine_disque(plateau[i][j], plateau, n)
-            j += 1
-        i += 1
+
+    #on utilise la fonction dessine_config
+    dessine_config(plateau, n)
