@@ -74,20 +74,15 @@ def verifier_deplacement(plateau, nt1, nt2):
 def verifier_victoire(plateau, n):
     #On initialise 2 listes qui vont correspondre au tableau de victoire pour n éléments.
     victoire = [[], [], []]
-    victoire_rev = [[], [], []]
-
+    
     #on ajoute sur la tour numéro 3 les éléments de 1 à n dans nos deux listes.
-    i = 1
-    while (i <= n):
+    i = n
+    while (i >= 1):
         victoire[2].append(i)
-        victoire_rev[2].append(i)
-        i += 1
-
-    #on retourne notre liste victoire_rev
-    victoire_rev.reverse()
+        i -= 1
 
     #on test si notre plateau correspond à une des liste de victoire,
     #si c'est le cas on return True, sinon False
-    if (victoire == plateau or victoire_rev == plateau):
+    if (victoire == plateau):
         return True
     return False

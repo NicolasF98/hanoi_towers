@@ -66,22 +66,23 @@ def boucle_jeu(plateau, n):
     cpt = 1 
 
     #on initialise le nbr de coup max à 10.
-    cpt_max = 10 
+    cpt_max = 3
 
     #on boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteind.
-    while ((win != True) and (cpt <= cpt_max)):
+    while (win != True) and (cpt <= cpt_max):
         print("Coup numéro ",cpt)
         coups[cpt] = jouer_un_coup(plateau,n)
         print(coups)
         print(plateau)
         win = verifier_victoire(plateau,n)
         cpt += 1
-    if (cpt == cpt_max) and (win != True):
+    if (cpt >= cpt_max):
         print("Désolé tu as perdu !")
     else:
         print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
 
 def main():
+
     print("-- Bienvenue dans les Tours de Hanoi --")
     n = int(input("Avec combien de disque souhaites-tu jouer ? "))
     liste_plateau = init(n)

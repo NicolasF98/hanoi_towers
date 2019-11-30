@@ -58,16 +58,9 @@ def dessine_disque(nd, plateau, n):
                 coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*tour
 
                 #si notre tour à 1 disque alors sa position en y est:
-                if (len(plateau[tour]) == 1):
-                    coord_y = 0
+        
+                coord_y = 20*(n-nd)
                 
-                #si notre tour à 2 disque alors sa position en y est:
-                elif (len(plateau[tour]) == 2):
-                    coord_y = 20*(len(plateau[tour])-1)
-
-                #sinon sa position en y est:
-                else:
-                    coord_y = (20 * (n-nd))
                 sortie = 1
             disque += 1
         disque = 0
