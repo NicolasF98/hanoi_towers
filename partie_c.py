@@ -66,7 +66,7 @@ def boucle_jeu(plateau, n):
     cpt = 1 
 
     #on initialise le nbr de coup max à 10.
-    cpt_max = 3
+    cpt_max = 10
 
     #on boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteind.
     while (win != True) and (cpt <= cpt_max):

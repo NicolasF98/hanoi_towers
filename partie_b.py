@@ -57,10 +57,14 @@ def dessine_disque(nd, plateau, n):
                 #la coord initial en x est alors:
                 coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*tour
 
-                #si notre tour à 1 disque alors sa position en y est:
-        
-                coord_y = 20*(n-nd)
+                #si notre tour est la tour initiale avec n disque, alors sa position y est:
+                if (len(plateau[tour]) == n):
+                    coord_y = (20 * (n-nd))
                 
+                #sinon:
+                else: 
+                    coord_y = 20*(len(plateau[tour])-1)
+
                 sortie = 1
             disque += 1
         disque = 0
@@ -79,39 +83,13 @@ def dessine_disque(nd, plateau, n):
     turtle.right(90)
     turtle.forward(20)
     turtle.left(90)
+    turtle.color('black')
 
 
 def efface_disque(nd, plateau, n):
     #on re-utilise la fonction dessine_disque, mais on dessine en blanc
     turtle.color('white')
-    i, j, sortie = 0, 0, 0
-    while (i < 3 and sortie == 0):
-        while (j < len(plateau[i]) and sortie == 0):
-            if (nd == plateau[i][j]):
-                coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*i
-                if (len(plateau[i]) == 1):
-                    coord_y = 0
-                elif (len(plateau[i]) == 2):
-                    coord_y = 20*(len(plateau[i])-1)
-                else:
-                    coord_y = (20 * (n-nd))
-                sortie = 1
-            j += 1
-        j = 0
-        i += 1
-
-    turtle.up()
-    turtle.goto((-300) + coord_x, (-200) + coord_y)
-    turtle.down()
-    
-    turtle.left(90)
-    turtle.forward(20)
-    turtle.right(90)
-    turtle.forward((40 + (30*(nd-1))))
-    turtle.right(90)
-    turtle.forward(20)
-    turtle.left(90)
-    turtle.color('black')
+    dessine_disque(nd, plateau, n)
 
 def dessine_config(plateau, n):
     #on initialise notre index tour et disque à 0.
