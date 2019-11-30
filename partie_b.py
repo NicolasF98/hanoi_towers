@@ -3,7 +3,7 @@
 import turtle
 
 #on augemente la vitesse de dessin de Turtle
-turtle.speed('fastest')
+#turtle.speed('fastest')
 
 def dessine_plateau(n):
     #position initial de notre plateau
@@ -40,15 +40,15 @@ def dessine_disque(nd, plateau, n):
     #tour correspond à l'indice de tour.
     #disque à l'indice du disque.
     #sortie nous sert de condition de sortie.
-    tour, disque, sortie, coord_x, coord_y = 0, 0, 0, 0, 0
-
+    tour, disque, sortie = 0, 0, 0
+    coord_x, coord_y = 0, 0
     #on va chercher la position initiale de notre disque.
     #on boucle temps qu'on est sur une de nos 3 tours et 
     #que la condition de sortie n'est pas valide.
-    while (tour < 3 and sortie == 0):
+    while (tour < 3 and sortie != 1):
 
         #on parcour toutes les positions possible de disque sur une tour précise.
-        while (disque < len(plateau[tour]) and sortie == 0):
+        while (disque < len(plateau[tour]) and sortie != 1):
 
             #si on trouve notre disque
             if (nd == plateau[tour][disque]):
@@ -69,9 +69,8 @@ def dessine_disque(nd, plateau, n):
                     coord_y = (20 * (n-nd))
                 sortie = 1
             disque += 1
-        j = 0
         tour += 1
-
+    print(coord_x, coord_y)
     #on se deplace à la position initiale du disque
     turtle.up()
     turtle.goto((-300) + coord_x, (-200) + coord_y)
@@ -87,11 +86,11 @@ def dessine_disque(nd, plateau, n):
     turtle.left(90)
 
 #p = [[],[1,2,3],[]]
-#p = [[],[],[1,2,3]]
+p = [[1],[2],[3]]
 #p = [[1,2,3],[],[]]
-#dessine_disque(2, p, 3)
-#dessine_disque(3, p, 3)
-#dessine_disque(1, p, 3)
+dessine_disque(2, p, 3)
+dessine_disque(3, p, 3)
+dessine_disque(1, p, 3)
 
 def efface_disque(nd, plateau, n):
     #on re-utilise la fonction dessine_disque, mais on dessine en blanc
