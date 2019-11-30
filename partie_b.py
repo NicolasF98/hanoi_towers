@@ -42,6 +42,7 @@ def dessine_disque(nd, plateau, n):
     #sortie nous sert de condition de sortie.
     tour, disque, sortie = 0, 0, 0
     coord_x, coord_y = 0, 0
+
     #on va chercher la position initiale de notre disque.
     #on boucle temps qu'on est sur une de nos 3 tours et 
     #que la condition de sortie n'est pas valide.
@@ -69,6 +70,7 @@ def dessine_disque(nd, plateau, n):
                     coord_y = (20 * (n-nd))
                 sortie = 1
             disque += 1
+        disque = 0
         tour += 1
     print(coord_x, coord_y)
     #on se deplace à la position initiale du disque
