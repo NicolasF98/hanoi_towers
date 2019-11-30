@@ -72,6 +72,8 @@ def boucle_jeu(plateau, n):
     while (win != True) and (cpt <= cpt_max):
         print("Coup numéro ",cpt)
         coups[cpt] = jouer_un_coup(plateau,n)
+        
+        
         print(coups)
         print(plateau)
         win = verifier_victoire(plateau,n)
