@@ -81,8 +81,8 @@ def boucle_jeu(plateau, n):
     else:
         print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
 
+#definition d'une fonction main comme demandé.
 def main():
-
     print("-- Bienvenue dans les Tours de Hanoi --")
     n = int(input("Avec combien de disque souhaites-tu jouer ? "))
     liste_plateau = init(n)
