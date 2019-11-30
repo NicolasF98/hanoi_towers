@@ -40,7 +40,7 @@ def dessine_disque(nd, plateau, n):
     #tour correspond à l'indice de tour.
     #disque à l'indice du disque.
     #sortie nous sert de condition de sortie.
-    tour, disque, sortie = 0, 0, 0
+    tour, disque, sortie, coord_x, coord_y = 0, 0, 0, 0, 0
 
     #on va chercher la position initiale de notre disque.
     #on boucle temps qu'on est sur une de nos 3 tours et 

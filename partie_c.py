@@ -51,12 +51,16 @@ def jouer_un_coup(plateau, n):
     plateau[coords[1]].append(val)
 
     #on dessine la nouvelle position de notre disque.
-    dessine_disque(val, plateau, n )
+    dessine_disque(val, plateau, n)
 
+    return coords
 
 def boucle_jeu(plateau, n):
     #la variable win correspond à la condition de victoire, en fonction du plateau et de nbr de disque.
     win = verifier_victoire(plateau,n)
+
+    #creation du dictionnaire qui nous permet de recuperere la paire de mouvement du joueur, en fonction du coup.
+    coups = {}
 
     #compteur de coups joué.
     cpt = 1 
@@ -67,11 +71,12 @@ def boucle_jeu(plateau, n):
     #on boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteind.
     while ((win != True) and (cpt <= cpt_max)):
         print("Coup numéro ",cpt)
-        jouer_un_coup(plateau,n)
+        coups[cpt] = jouer_un_coup(plateau,n)
+        print(coups)
         print(plateau)
         win = verifier_victoire(plateau,n)
         cpt += 1
-    
+
     print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
 
 def main():
