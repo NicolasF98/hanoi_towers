@@ -55,17 +55,23 @@ def jouer_un_coup(plateau, n):
 
 
 def boucle_jeu(plateau, n):
-    coups = {}
+    #la variable win correspond à la condition de victoire, en fonction du plateau et de nbr de disque.
     win = verifier_victoire(plateau,n)
-    cpt = 1 #compteur de coups joué
-    cpt_max = 10 #on initialise le nbr de coup max à 10
+
+    #compteur de coups joué.
+    cpt = 1 
+
+    #on initialise le nbr de coup max à 10.
+    cpt_max = 10 
+
+    #on boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteind.
     while ((win != True) and (cpt <= cpt_max)):
         print("Coup numéro ",cpt)
         jouer_un_coup(plateau,n)
         print(plateau)
         win = verifier_victoire(plateau,n)
         cpt += 1
-
+    
     print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
 
 def main():
