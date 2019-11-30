@@ -3,7 +3,7 @@
 import turtle
 
 #on augemente la vitesse de dessin de Turtle
-#turtle.speed('fastest')
+turtle.speed('fastest')
 
 def dessine_plateau(n):
     #position initial de notre plateau
@@ -72,7 +72,7 @@ def dessine_disque(nd, plateau, n):
             disque += 1
         disque = 0
         tour += 1
-    print(coord_x, coord_y)
+
     #on se deplace à la position initiale du disque
     turtle.up()
     turtle.goto((-300) + coord_x, (-200) + coord_y)
@@ -87,12 +87,6 @@ def dessine_disque(nd, plateau, n):
     turtle.forward(20)
     turtle.left(90)
 
-#p = [[],[1,2,3],[]]
-p = [[1],[2],[3]]
-#p = [[1,2,3],[],[]]
-dessine_disque(2, p, 3)
-dessine_disque(3, p, 3)
-dessine_disque(1, p, 3)
 
 def efface_disque(nd, plateau, n):
     #on re-utilise la fonction dessine_disque, mais on dessine en blanc

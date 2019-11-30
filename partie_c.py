@@ -76,8 +76,10 @@ def boucle_jeu(plateau, n):
         print(plateau)
         win = verifier_victoire(plateau,n)
         cpt += 1
-
-    print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
+    if (cpt == cpt_max) and (win != True):
+        print("Désolé tu as perdu !")
+    else:
+        print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
 
 def main():
     print("-- Bienvenue dans les Tours de Hanoi --")
