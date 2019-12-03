@@ -1,5 +1,6 @@
 import time
 
+#cette fonction sera utilisé dans la fonction 'boucle_jeu' de la partie c.
 def score_joueur(nom, nbr_disque, nbr_coups):
     #nous allons ajouter le nom ainsi que le
     #score du joueur dans note fichier 'score.txt'.

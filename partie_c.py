@@ -86,6 +86,7 @@ def boucle_jeu(plateau, n):
         nom_joueur = input("Quel est ton nom jeune joueur ?")
     #nous devons ajouter le score de 'nom_joueur' dans notre txt avec l'aide de la fonction
     #'score_joueur'.
+    score_joueur(nom_joueur, n, cpt)
 
 #definition d'une fonction main comme demandé.
 def main():
