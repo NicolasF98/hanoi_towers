@@ -2,6 +2,7 @@
 
 from partie_b import *
 from partie_a import *
+from partie_e import *
 
 
 def lire_coords(plateau):
@@ -82,6 +83,9 @@ def boucle_jeu(plateau, n):
         print("Désolé tu as perdu !")
     else:
         print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
+        nom_joueur = input("Quel est ton nom jeune joueur ?")
+    #nous devons ajouter le score de 'nom_joueur' dans notre txt avec l'aide de la fonction
+    #'score_joueur'.
 
 #definition d'une fonction main comme demandé.
 def main():
