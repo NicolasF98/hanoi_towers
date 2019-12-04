@@ -29,7 +29,7 @@ UE INF101: Algorithmique et Programmation en Python.
 - Gabriel Chombart <gabriel.chombart@etu.univ-grenoble-alpes.fr>
 
 
-## Deadlines
+## Deadline
 
 **Vendredi 6 Décembre 2019 à 23h59**
 
