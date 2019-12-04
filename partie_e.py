@@ -20,3 +20,12 @@ def score_joueur(nom, nbr_disque, nbr_coups):
     #on oublie pas de fermer notre fichier une fois
     #l'ajout effectué.
     score.close()
+
+#def scoreboard(file):
+        
+        
+    
+
+    
+            
+#scoreboard("score.txt")

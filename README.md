@@ -70,8 +70,8 @@ UE INF101: Algorithmique et Programmation en Python.
 
 ### Partie E: fichier de score et temps de jeu
 
-- [ ] 1 - Implémenter `score`.
-- [ ] 2 - Modifier le main afin de demander le nom du joueur en cas de victoire, il faudra utiliser la fonction `score`.
+- [x] 1 - Implémenter `score`.
+- [x] 2 - Modifier le main afin de demander le nom du joueur en cas de victoire, il faudra utiliser la fonction `score`.
 - [ ] 3 - Faire un affichage des meilleurs scores en utilisant le module turtle.
 - [ ] 4 - Sauvegader le temps de jeu de la partie.
 - [ ] 5 - Implémenter une fonction qui calcul le temps moyen de reflexion du joueur.

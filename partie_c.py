@@ -2,6 +2,7 @@
 
 from partie_b import *
 from partie_a import *
+from partie_d import *
 from partie_e import *
 
 
@@ -66,16 +67,29 @@ def boucle_jeu(plateau, n):
     #compteur de coups joué.
     cpt = 1 
 
+    #variable qui nous sert de booléen d'annulation.
+    annuler = 0
+
     #on initialise le nbr de coup max à 10.
     cpt_max = 10
 
     #on boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteind.
     while (win != True) and (cpt <= cpt_max):
         print("Coup numéro ",cpt)
+
+        #recupère les coordonées donnée par le joueur au coup cpt, cela nous permet de faire un suivi 
+        #des coups qu'on pourra annuler par la suite.
         coups[cpt] = jouer_un_coup(plateau,n)
-        
-        
         print(coups)
+        annuler = int(input("Veux-tu annuler ce coup ? (1/0) "))
+        if (annuler == 1):
+            annuler_dernier_coup(coups, cpt, plateau, n)
+            cpt += -1
+            
+
+        annuler = 0
+
+
         print(plateau)
         win = verifier_victoire(plateau,n)
         cpt += 1
