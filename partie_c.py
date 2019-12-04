@@ -80,27 +80,34 @@ def boucle_jeu(plateau, n):
         #recupère les coordonées donnée par le joueur au coup cpt, cela nous permet de faire un suivi 
         #des coups qu'on pourra annuler par la suite.
         coups[cpt] = jouer_un_coup(plateau,n)
-        print(coups)
+
+        #on propose a l'utilisateur de d'annuler son coup.
         annuler = int(input("Veux-tu annuler ce coup ? (1/0) "))
+
+        #si il accepte, on appelle notre fonction annuler_dernier_coup et on decremente notre compteur.
         if (annuler == 1):
             annuler_dernier_coup(coups, cpt, plateau, n)
             cpt += -1
-            
-
+        
+        #on remette notre variable annuler à 0 afin d'éviter des problèmes booleen au prochain tour de boucle.
         annuler = 0
 
-
-        print(plateau)
+        #on verifie si on a reussi notre jeu, on stock  le resultat dans une variable `win`.
         win = verifier_victoire(plateau,n)
         cpt += 1
+    
+    #si le joueur à joué trop de coups, il a perdu.
     if (cpt >= cpt_max):
         print("Désolé tu as perdu !")
+    
+    #sinon il a gagné.
     else:
         print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
         nom_joueur = input("Quel est ton nom jeune joueur ?")
-    #nous devons ajouter le score de 'nom_joueur' dans notre txt avec l'aide de la fonction
-    #'score_joueur'.
+
+    #on ajoute le score de 'nom_joueur' dans notre txt avec l'aide de la fonction 'score_joueur'.
     score_joueur(nom_joueur, str(n), str(cpt))
+
 
 #definition d'une fonction main comme demandé.
 def main():
