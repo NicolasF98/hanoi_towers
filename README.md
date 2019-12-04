@@ -63,9 +63,9 @@ UE INF101: Algorithmique et Programmation en Python.
   
 ### Partie D: anulation de coups
 
-- [ ] 1 - Implémenter `dernier_coup`.
-- [ ] 2 - Implémenter `annuler_dernier_coup`.
-- [ ] 3 - Modifier `boucle_jeu` afin d'autoriser les annulations.
+- [x] 1 - Implémenter `dernier_coup`.
+- [x] 2 - Implémenter `annuler_dernier_coup`.
+- [x] 3 - Modifier `boucle_jeu` afin d'autoriser les annulations.
 - [ ] 4 (BONUS) - Créer un système de sauvage de la partie en cours à l'aide du module pickle.
 
 ### Partie E: fichier de score et temps de jeu
