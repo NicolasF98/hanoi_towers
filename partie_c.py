@@ -1,7 +1,7 @@
 #PARTIE C: Interactions avec le joueur
 
-from partie_b import *
 from partie_a import *
+from partie_b import *
 from partie_d import *
 from partie_e import *
 
