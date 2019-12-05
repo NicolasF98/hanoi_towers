@@ -2,16 +2,16 @@
 
 import turtle
 
-#on augemente la vitesse de dessin de Turtle
+#On augemente la vitesse de dessin de Turtle.
 turtle.speed('fastest')
 
 def dessine_plateau(n):
-    #position initial de notre plateau
+    #On va à la position initiale de notre plateau.
     turtle.up()
     turtle.goto(-300,-200)
     turtle.down()
 
-    #dessin du plateau
+    #On dessine le plateau en fonction du nombre de disque.
     turtle.forward( (20*4) + ((40 + (30*(n-1)))*3) + (6*3))
     turtle.right(90)
     turtle.forward(20)
@@ -21,7 +21,7 @@ def dessine_plateau(n):
     turtle.forward(20)
     turtle.right(90)
 
-    #dessin des tours
+    #On dessin nos 3 tours.
     i = 0
     while(i != 3):
         turtle.forward(20 + ((40 + (30*(n-1)))/2))
@@ -35,33 +35,36 @@ def dessine_plateau(n):
         turtle.forward((40 + (30*(n-1)))/2 )
         i += 1
 
+
 def dessine_disque(nd, plateau, n):
-    #initialisation de 3 variables à 0.
-    #tour correspond à l'indice de tour.
-    #disque à l'indice du disque.
-    #sortie nous sert de condition de sortie.
+    #Initialisation de 3 variables à 0:
+    # tour correspond à l'indice de tour.
+    # disque à l'indice du disque.
+    # sortie nous sert de condition de sortie dans notre boucle while.
     tour, disque, sortie = 0, 0, 0
+
+    #On déclare les nouvelles coordonnées initiales du disque.
     coord_x, coord_y = 0, 0
 
-    #on va chercher la position initiale de notre disque.
-    #on boucle temps qu'on est sur une de nos 3 tours et 
-    #que la condition de sortie n'est pas valide.
+    #On va chercher la position initiale de notre disque.
+    #On boucle temps que l'on est sur une de nos 3 tours et 
+    # que la condition de sortie n'est pas valide.
     while (tour < 3 and sortie != 1):
 
-        #on parcour toutes les positions possible de disque sur une tour précise.
+        #On parcourt toutes les positions possible de disque sur une tour précise.
         while (disque < len(plateau[tour]) and sortie != 1):
 
-            #si on trouve notre disque
+            #Si on trouve notre disque.
             if (nd == plateau[tour][disque]):
 
-                #la coord initial en x est alors:
+                #La coord initial en x est alors:
                 coord_x = (20 + 15*(n-nd)) + (40 + (30*n))*tour
 
-                #si notre tour est la tour initiale avec n disque, alors sa position y est:
+                #Si notre tour est la tour initiale avec n disque, alors sa position y est:
                 if (len(plateau[tour]) == n):
                     coord_y = (20 * (n-nd))
                 
-                #sinon:
+                #Sinon:
                 else: 
                     coord_y = 20*(len(plateau[tour])-1)
 
@@ -70,7 +73,7 @@ def dessine_disque(nd, plateau, n):
         disque = 0
         tour += 1
 
-    #on se deplace à la position initiale du disque
+    #On se deplace à la position initiale du disque.
     turtle.up()
     turtle.goto((-300) + coord_x, (-200) + coord_y)
     turtle.down()
@@ -87,30 +90,30 @@ def dessine_disque(nd, plateau, n):
 
 
 def efface_disque(nd, plateau, n):
-    #on re-utilise la fonction dessine_disque, mais on dessine en blanc
+    #On reutilise la fonction dessine_disque, mais on dessine en blanc afin d'effacer notre disque.
     turtle.color('white')
     dessine_disque(nd, plateau, n)
 
 def dessine_config(plateau, n):
-    #on initialise notre index tour et disque à 0.
+    #On initialise notre index de tour et de disque à 0.
     tour, disque = 0, 0
 
-    #on parcours toutes nos tours.
+    #On parcourt toutes nos tours.
     while (tour < 3):
 
-        #on dessine tous nos disques.
+        #On dessine tous nos disques sur 1 tour précise.
         while (disque < len(plateau[tour])):
             if (len(plateau[tour]) != 0):
                 dessine_disque(plateau[tour][disque], plateau, n)
             disque += 1
         
-        #on reinitilise notre variable disque et on passe à la tour suivante.
+        #On reinitilise notre variable disque et on passe à la tour suivante.
         disque = 0
         tour += 1
 
 def efface_tout(plateau, n):
-    #on change la couleur en blanc afin de pouvoir effacer.
+    #On change la couleur en blanc afin de pouvoir effacer tous les disques du plateau.
     turtle.color('white')
 
-    #on utilise la fonction dessine_config
+    #On utilise la fonction dessine_config.
     dessine_config(plateau, n)
