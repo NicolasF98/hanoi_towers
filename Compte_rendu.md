@@ -405,3 +405,7 @@ def annuler_dernier_coup(dict, num_der_tour, plateau, n):
 
     #on décremente le compteur de tour directement dans la fonction `boucle_de_jeu`.
 ```
+
+# Partie E - Fichier de scores et temps de jeu:
+
+Nous avons
