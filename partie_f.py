@@ -1,17 +1,25 @@
-def IA(n , tour_deb, tour_arriv, tour_sec, tour):
-    tour += 1 
-    coups_IA = []
+#Nous avons utiliser la récursion dans cette fonction
+def IA(n , tour_deb, tour_arriv, tour_sec, coups_IA):
+
+    #Notre conditions de "sortie" de recursion, elle va nous permettre de build notres stack.
     if n == 1:
+
+        #On ajoute les coordonnées dans notre liste.
         coups_IA.append([tour_deb, tour_arriv])
-        print ("Disque 1 de la tour",tour_deb,"à la tour",tour_arriv)
+
+        #on force un return pour avoir les autres élément de notre stack.
         return
-    coups_IA.append([tour_deb, tour_arriv])
-    IA(n-1, tour_deb, tour_sec, tour_arriv,tour)
-    coups_IA.append([tour_deb, tour_arriv])
-    print ("Disque",n,"de la tour",tour_deb,"à la tour",tour_arriv)
-    IA(n-1, tour_sec, tour_arriv, tour_deb, tour)
+
+    #On appelle de nouveau notre fonction avec n-1, et on donne notre tour secondaire comme tour d'arrivé de notre disque.
+    IA(n-1, tour_deb, tour_sec, tour_arriv, coups_IA) 
+
+    #On ajoute les nouvelles valeurs dans notre liste.
     coups_IA.append([tour_deb, tour_arriv])
 
+    #On appelle de nouveau notre fonction avec n-1, et on donne notre tour secondaire comme tour de depart de notre disque.
+    IA(n-1, tour_sec, tour_arriv, tour_deb, coups_IA)
+    
     return coups_IA
 
-print(IA(3,"1","3","2", 0))
+coups_IA = []
+print(IA(3,"1","3","2",coups_IA))
