@@ -42,7 +42,7 @@ UE INF101: Algorithmique et Programmation en Python.
 - [x] 5 - Implémenter `verifier_deplacement`.
 - [x] 6 - Implémenter `verifier_victoire`.
 
-### Partie B: graphisme avec Turtle
+### ~Partie B: graphisme avec Turtle~
 
 - [x] 1 - Implémenter `dessine_plateau`.
 - [x] 2 - Implémenter `dessine_disque`.
@@ -52,7 +52,7 @@ UE INF101: Algorithmique et Programmation en Python.
 - [ ] 6 (BONUS) - Colorer le plateau et les tours
 - [ ] 7 (BONUS) - Ajouter une image de fond
 
-### Partie C: interactions avec le joueur
+### ~Partie C: interactions avec le joueur~
 
 - [x] 1 - Implémenter `lire_coords`.
 - [x] 2 - Implémenter `jouer_un_coup`.
@@ -61,7 +61,7 @@ UE INF101: Algorithmique et Programmation en Python.
 - [ ] 3 (OPTION 2) - Implémenter une option d'abandon.
 - [x] 4 - Implémenter un programme principal qui demande un nbr de disque souhaité et qui intialise le plateau, le dessine et fini par lancer le jeu.
   
-### Partie D: anulation de coups
+### ~Partie D: annulation de coups~
 
 - [x] 1 - Implémenter `dernier_coup`.
 - [x] 2 - Implémenter `annuler_dernier_coup`.

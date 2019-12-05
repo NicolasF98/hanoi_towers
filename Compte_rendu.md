@@ -10,7 +10,7 @@ Nicolas à commenté tous les codes, redigé le compte rendu en markdown et cré
 
 Dans ce compte rendu nous allons expliquer pour chaque exercice de chaque partie les difficultées rencontrés (si il y en a eu), les solutions apportés, ainsi qu'une courte explication de la démarche qui nous a permis de résoudre cet exercice.
 
-## Partie A:
+# Partie A - Plateau de jeu et Listes:
 
 Dans la partie A nous initialisons les fonctions de base ainsi que la structure de notre plateau de jeu.
 
@@ -110,7 +110,7 @@ def verifier_victoire(plateau, n):
     return False
 ```
 
-# Partie B:
+# Partie B - Graphisme avec Turtle:
 
 Dans la partie B, nous créons la partie graphique de notre jeu, pour ce faire nous avons utilisé le module `turtle`, ce dernier nous permet d'ouvrire une fenetre graphique et de dessiner
 aussi bien notre plateau que nos disques, et nos tours.
@@ -242,7 +242,7 @@ def efface_tout(plateau, n):
     dessine_config(plateau, n)
 ```
 
-# Partie C:
+# Partie C - Interactions avec le joueur: 
 
 La partie C est la partie la plus importante du projet, en effet elle contient la boucle de notre jeu ainsi que le main qui nous permet de lancer notre jeu.
 
@@ -373,9 +373,35 @@ def main():
 main()
 ```
 
-# Partie D:
+# Partie D - Annulation de coups:
 
-Dans cette partie nous n'avons pas su comment recuperer les positions du dernier coup joué en fonction des différentes configuration du plateau.
+Dans cette partie nous n'avons pas réussi à récuperer les positions du dernier coup joué en fonction des différentes configurations du plateau.
 
-Afin de pouvoir faire se qui est demandé nous avons recuperer directement les coordonnées fourni par le joueur dans la partie C et à l'aide de la foncton lire_coords.
+Afin de pouvoir faire se qui est demandé, nous avons récuperé directement les coordonnées fourni par le joueur dans `boucle_de_jeu` de la partie C.
 
+Notre fichier partie_d n'a donc que 1 fonction, nous l'avons modifier en prenant en argument le plateau et le nombre total de disque, ces nouveau arguments vous nous permettre d'appeler nos fonction `efface_disque` puis `dessine_disque`.
+
+```py
+from partie_b import *
+
+def annuler_dernier_coup(dict, num_der_tour, plateau, n):
+    #on place les valeurs joué dans un variable.
+    val = dict[num_der_tour]
+
+    #on efface le disque du plateau 
+    efface_disque(plateau[val[1]][len(plateau[val[1]])-1] ,plateau, n)
+    
+    #on supprime la clé et ses valeur du dictionnaire
+    del dict[num_der_tour]
+
+    #on retourne ces valeurs afin de d'avoir les valeurs d'annulation.
+    val.reverse()
+
+    #on change le disque de position dans le plateau.
+    plateau[val[1]] = plateau[val[0]]
+
+    #on redessine le disque à sa nouvelle position.
+    dessine_disque(plateau[val[1]][len(plateau[val[1]])-1] ,plateau , n)
+
+    #on décremente le compteur de tour directement dans la fonction `boucle_de_jeu`.
+```
