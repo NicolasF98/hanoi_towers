@@ -1,16 +1,19 @@
-FOURNOUT Nicolas
-CHOMBART Gabriel
+- FOURNOUT Nicolas
+- CHOMBART Gabriel
+- IMA-9
 
 # Projet INF101 - Les Tours de Hanoi.
 
-Pour la répartition du travail nous avons fait chacun de notre coté les différentes parties et nous avons par la suite mis en commun nos codes.
-Nicolas à commenté tous les codes, redigé le compte rendu en markdown et créée cette page GitHub qui resume l'avancement du Projet: `https://github.com/NicolasF98/hanoi_towers.py`.
+Pour la répartition du travail nous avons fait chacun de notre coté les différentes parties, nous avons par la suite mis en commun nos codes.
+
+Nicolas à commenté tous les codes, redigé le compte rendu en markdown et créée cette page GitHub qui résume l'avancement du Projet: `https://github.com/NicolasF98/hanoi_towers.py`.
 
 Dans ce compte rendu nous allons expliquer pour chaque exercice de chaque partie les difficultées rencontrés (si il y en a eu), les solutions apportés, ainsi qu'une courte explication de la démarche qui nous a permis de résoudre cet exercice.
 
 ## Partie A:
 
 Dans la partie A nous initialisons les fonctions de base ainsi que la structure de notre plateau de jeu.
+
 Nous n'avons pas rencontré de problème particulier, nous avons tout simplement suivi les indications fourni par les consignes de travail.
 
 ```py
@@ -111,9 +114,12 @@ def verifier_victoire(plateau, n):
 
 Dans la partie B, nous créons la partie graphique de notre jeu, pour ce faire nous avons utilisé le module `turtle`, ce dernier nous permet d'ouvrire une fenetre graphique et de dessiner
 aussi bien notre plateau que nos disques, et nos tours.
+
 Nous avons eu des soucis au niveau de l'affichage des disques, en effet ils ne sont pas parfaitement positionné au milieu des tours.
+
 Nous avons essayé de resoudre ce problème en faisait des essais et en modifiant notre code par tatonnement, nous avons reussi à plus ou moins resoudre 
 ce problème mais le placement du disque n'est toujours pas optimal.
+
 Egalement nous ne savons pas si la hauteur de la tour doit être fixe ou non, à defaut nous l'avons adapté au nombre de disque.
 
 ```py
@@ -239,7 +245,9 @@ def efface_tout(plateau, n):
 # Partie C:
 
 La partie C est la partie la plus importante du projet, en effet elle contient la boucle de notre jeu ainsi que le main qui nous permet de lancer notre jeu.
+
 Nous n'avons pas renconter de grosse difficulté, à par des soucis d'implementation des partie D et E, mais ces problèmes seront expliqué plus bas dans ce compte rendu.
+
 Nicolas à prit l'initiative de créer une fonction `main` et de l'executé directement dans la partie_c, au lieu d'avoir une suite de commandes écrites à la fin de cette partie, cela semble plus ordonné.
 
 ```py
@@ -364,3 +372,10 @@ def main():
 
 main()
 ```
+
+# Partie D:
+
+Dans cette partie nous n'avons pas su comment recuperer les positions du dernier coup joué en fonction des différentes configuration du plateau.
+
+Afin de pouvoir faire se qui est demandé nous avons recuperer directement les coordonnées fourni par le joueur dans la partie C et à l'aide de la foncton lire_coords.
+
