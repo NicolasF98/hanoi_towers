@@ -24,11 +24,8 @@ def IA(n , tour_deb, tour_arriv, tour_sec, coups_IA):
     
     return coups_IA
 
-coups_IA = []
-print(IA(3,"1","3","2",coups_IA))
-
 def dessine_IA(n, coups_IA):
-    
+    #On initialise notre plateau, on le dessine, puis on desssine chaque mouvement de disque dans notre boucle for.
     plateau = init(n)
     dessine_plateau(n)
     dessine_config(plateau, n)

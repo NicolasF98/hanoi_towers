@@ -8,7 +8,7 @@ Pour la répartition du travail nous avons fait chacun de notre coté les diffé
 
 Nicolas à commenté tous les codes, redigé le compte rendu en markdown et créée cette page GitHub qui résume l'avancement du Projet: `https://github.com/NicolasF98/hanoi_towers.py`.
 
-Dans ce compte rendu nous allons expliquer pour chaque exercice de chaque partie les difficultées rencontrés (si il y en a eu), les solutions apportés, ainsi qu'une courte explication de la démarche qui nous a permis de résoudre cet exercice.
+Dans ce compte rendu nous allons expliquer pour chaque exercice de chaque partie les difficultées rencontrés (si il y en a eu), les solutions apportés, ainsi qu'une courte explication de la démarche qui nous a permit de résoudre cet exercice.
 
 
 # Partie A - Plateau de jeu et Listes:
