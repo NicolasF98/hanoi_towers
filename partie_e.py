@@ -1,3 +1,5 @@
+#PARTIE E: Fichier de socres et temps de jeu
+
 import time
 
 def score_joueur(nom, nbr_disque, nbr_coups):

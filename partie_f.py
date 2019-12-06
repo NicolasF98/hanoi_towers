@@ -1,3 +1,5 @@
+#PARTIE F: Jeu automatique, fonction récursive
+
 from partie_a import *
 from partie_b import *
 
