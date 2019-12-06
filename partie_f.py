@@ -28,26 +28,13 @@ coups_IA = []
 print(IA(3,"1","3","2",coups_IA))
 
 def dessine_IA(n, coups_IA):
-    print("-- Bienvenue dans les Tours de Hanoi --")
-    n = 3 #int(input("Avec combien de disque souhaites-tu jouer ? "))
-
+    
     plateau = init(n)
     dessine_plateau(n)
     dessine_config(plateau, n)
     for coords in coups_IA:
-        print(plateau)
-        print(int(coords[0]))
-        print(int(coords[1]))
-
         val = plateau[int(coords[0])-1][len(plateau[int(coords[0])-1])-1]
-        print(val)
-
         efface_disque(val, plateau, n)        
-
-        print(plateau[int(coords[0])-1])
         plateau[int(coords[0])-1].remove(val)
         plateau[int(coords[1])-1].append(val)
-        
         dessine_disque(val, plateau, n)
-
-dessine_IA(3,IA(3,"1","3","2",[]))

@@ -4,6 +4,7 @@ from partie_a import *
 from partie_b import *
 from partie_d import *
 from partie_e import *
+from partie_f import *
 
 
 def lire_coords(plateau):
@@ -67,11 +68,12 @@ def boucle_jeu(plateau, n):
     #Compteur de coups joué.
     cpt = 1 
 
-    #Variable qui nous sert de booléen d'annulation.
+    #Variableq qui nous sert de booléen d'annulation.
     annuler = 0
+    sol = 0
 
     #On initialise le nbr de coup max à 10.
-    cpt_max = 10
+    cpt_max = 1
 
     #On boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteint.
     while (win != True) and (cpt <= cpt_max):
@@ -99,11 +101,17 @@ def boucle_jeu(plateau, n):
     #Si le joueur a joué trop de coups, il a perdu.
     if (cpt >= cpt_max):
         print("Désolé tu as perdu !")
+        sol = int(input("Veux-tu voire la solution ? (1/0) "))
+        if (sol == 1):
+            #Permet de supprimer tout se qu'il y a dans notre fenetre graphique.
+            turtle.clear()
+            
+            dessine_IA(n,IA(n,"1","3","2",[]))
     
     #Sinon il a gagné.
     else:
         print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
-        nom_joueur = input("Quel est ton nom jeune joueur ?")
+        nom_joueur = input("Quel est ton nom jeune joueur ? ")
 
     #On ajoute le score de 'nom_joueur' dans notre txt avec l'aide de la fonction 'score_joueur'.
     score_joueur(nom_joueur, str(n), str(cpt))          # PARTIE E #

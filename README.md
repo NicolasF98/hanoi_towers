@@ -76,3 +76,9 @@ UE INF101: Algorithmique et Programmation en Python.
 - [ ] 4 - Sauvegader le temps de jeu de la partie.
 - [ ] 5 - Implémenter une fonction qui calcul le temps moyen de reflexion du joueur.
 - [ ] 6 - Implémenter une fonction qui affiche un tableau de score des joueurs ayant un faible temps de reflexion.
+
+### Partie F: Automatique, fonction récursive
+
+- [x] 1 - Implémenter `IA` qui sort une liste des mouvements à effectuer.
+- [x] 2 - Implémeter `dessine_IA`qui dessine la liste faite par `IA`.
+- [ ] 3 - Implémenter dans `boucle_de_jeu` une option solution qui s'affiche dans le joueur pert.
