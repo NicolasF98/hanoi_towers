@@ -76,8 +76,8 @@ def boucle_jeu(plateau, n):
     sol = 0
     aband = 0
 
-    #On initialise le nbr de coup max à 2 fois le nombre de coup minimum en fonction de n.
-    cpt_max = (2**n-1) * 2
+    #On initialise le nbr de coup max à 2 fois le nombre de coup minimum en fonction de n, plus 2 car on est généreux.
+    cpt_max = (2**n-1) * 2 + 2
 
     #On boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteint.
     while (win != True) and (cpt <= cpt_max):
@@ -104,8 +104,11 @@ def boucle_jeu(plateau, n):
                 return
 
         #Si il accepte, on appelle notre fonction annuler_dernier_coup et on décremente notre compteur.
+        
         if (annuler == 1):
+            print(plateau)
             annuler_dernier_coup(coups, cpt, plateau, n)
+            print(plateau)
             cpt += -1
         
         #0n reinitialise notre variable annuler à 0 afin d'éviter des problèmes de booleen au prochain tour de boucle.
@@ -133,15 +136,3 @@ def boucle_jeu(plateau, n):
 
     #On ajoute le score de 'nom_joueur' dans notre txt avec l'aide de la fonction 'score_joueur'.
     score_joueur(nom_joueur, str(n), str(cpt))          # PARTIE E #
-
-
-#definition d'une fonction main comme demandé.
-def main():
-    print("-- Bienvenue dans les Tours de Hanoi --")
-    n = int(input("Avec combien de disque souhaites-tu jouer ? "))
-    liste_plateau = init(n)
-    dessine_plateau(n)
-    dessine_config(liste_plateau, n)
-    boucle_jeu(liste_plateau, n)
-
-main()

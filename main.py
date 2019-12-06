@@ -5,6 +5,7 @@ from partie_d import *
 from partie_e import *
 from partie_f import *
 
+#definition d'une fonction main comme demandé.
 def main():
     print("-- Bienvenue dans les Tours de Hanoi --")
     n = int(input("Avec combien de disque souhaites-tu jouer ? "))

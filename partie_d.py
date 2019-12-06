@@ -16,9 +16,11 @@ def annuler_dernier_coup(dict, num_der_tour, plateau, n):
     val.reverse()
 
     #On change le disque de position dans le plateau.
-    plateau[val[1]] = plateau[val[0]]
+    plateau[val[1]].append(plateau[val[0]][len(plateau[val[0]])-1])
+    plateau[val[0]].remove(plateau[val[0]][len(plateau[val[0]])-1])
 
     #On redessine le disque à sa nouvelle position.
     dessine_disque(plateau[val[1]][len(plateau[val[1]])-1] ,plateau , n)
 
     #On decremente le compteur de tour directement dans `boucle_de_jeu` de la partie c.
+
