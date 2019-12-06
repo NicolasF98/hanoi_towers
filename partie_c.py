@@ -18,7 +18,10 @@ def lire_coords(plateau):
     #On boucle temps que le joueur n'a pas donnée une coord de départ valide.
     while (valide_dep != 1):
         t_dep = int(input("Choisis la tour de départ: "))
-        if (0 <= t_dep <= 2 and ((len(plateau[t_dep]) != 0))):
+        if (t_dep == -1):
+            valide_dep = 1
+            return
+        elif (0 <= t_dep <= 2 and ((len(plateau[t_dep]) != 0))):
             valide_dep = 1
         elif ((len(plateau[t_dep]) == 0)):
             print("Invalide, tour vide.")
@@ -68,12 +71,13 @@ def boucle_jeu(plateau, n):
     #Compteur de coups joué.
     cpt = 1 
 
-    #Variableq qui nous sert de booléen d'annulation.
+    #Variable qui nous sert de booléen d'annulation.
     annuler = 0
     sol = 0
+    aband = 0
 
-    #On initialise le nbr de coup max à 10.
-    cpt_max = 1
+    #On initialise le nbr de coup max à 2 fois le nombre de coup minimum en fonction de n.
+    cpt_max = (2**n-1) * 2
 
     #On boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteint.
     while (win != True) and (cpt <= cpt_max):
@@ -82,9 +86,22 @@ def boucle_jeu(plateau, n):
         #On récupère les coordonées fournit par le joueur au coup cpt, cela nous permet de faire un suivi 
         # des coups qu'on pourra annuler par la suite.
         coups[cpt] = jouer_un_coup(plateau,n)        # PARTIE D #
-
+    
         #On propose à l'utilisateur d'annuler son coup. 1 pour oui, 0 pour non.
         annuler = int(input("Veux-tu annuler ce coup ? (1/0) "))
+
+        #On propose à l'utilisateur d'abandonner. 1 pour oui, 0 pour non.
+        aband = int(input("Veux-tu abandonner ? (1/0) "))
+
+        if (aband == 1):
+            print("Tu as abandonnée après",cpt,"coups")
+            sol = int(input("Veux-tu voire la solution ? (1/0) "))
+            if (sol == 1):
+                #Permet de supprimer tout se qu'il y a dans notre fenetre graphique.
+                turtle.clear()
+
+                dessine_IA(n,IA(n,"1","3","2",[]))
+                return
 
         #Si il accepte, on appelle notre fonction annuler_dernier_coup et on décremente notre compteur.
         if (annuler == 1):
@@ -105,9 +122,10 @@ def boucle_jeu(plateau, n):
         if (sol == 1):
             #Permet de supprimer tout se qu'il y a dans notre fenetre graphique.
             turtle.clear()
-            
+
             dessine_IA(n,IA(n,"1","3","2",[]))
-    
+
+            return
     #Sinon il a gagné.
     else:
         print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")

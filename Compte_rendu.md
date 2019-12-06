@@ -10,6 +10,7 @@ Nicolas à commenté tous les codes, redigé le compte rendu en markdown et cré
 
 Dans ce compte rendu nous allons expliquer pour chaque exercice de chaque partie les difficultées rencontrés (si il y en a eu), les solutions apportés, ainsi qu'une courte explication de la démarche qui nous a permis de résoudre cet exercice.
 
+
 # Partie A - Plateau de jeu et Listes:
 
 Dans la partie A on initialise les fonctions de base ainsi que la structure de notre plateau de jeu.
@@ -32,134 +33,13 @@ Egalement nous ne savons pas si la hauteur de la tour doit être fixe ou non, à
 
 # Partie C - Interactions avec le joueur: 
 
-La partie C est la partie la plus importante du projet, en effet elle contient la boucle de notre jeu ainsi que le main qui nous permet de lancer notre jeu.
+La partie C est la partie la plus importante du projet, en effet elle contient la boucle de notre jeu ainsi que le main qui nous permet de lancer notre jeu. Pour lancer notre jeu il faut donc executer cette partie ( `python3 partie_c.py` dans un terminal bash). 
 
-Nous n'avons pas renconter de grosse difficulté, à par des soucis d'implementation des partie D et E, mais ces problèmes seront expliqué plus bas dans ce compte rendu.
+(On aurait pu faire un fichier `main.py` qui aurait contenu la fonction main de la partie_c, et qu'on aurait executé pour lancer notre jeu, mais nous ne l'avons pas fais car non-explicité dans l'énoncer du projet.)
 
-Nicolas à prit l'initiative de créer une fonction `main` et de l'executé directement dans la partie_c, au lieu d'avoir une suite de commandes écrites à la fin de cette partie, cela semble plus ordonné.
+Nous avons renconté des difficulté d'implémentation des partie D et E, mais ces problèmes seront expliqué dans leur partie dédié  dans ce compte rendu.
+Nous avons aussi pris la décision de demander à chaque tour à l'utilisateur si il souhaite abandonner ou annuler son coup.
 
-```py
-from partie_a import *
-from partie_b import *
-from partie_d import *
-from partie_e import *
-
-
-def lire_coords(plateau):
-    #valide_dep et _arr vont être nos conditions de sortie de nos boucles.
-    valide_dep = 0
-    valide_arr = 0
-
-    #creation de la liste de sortie de nos coordonnées.
-    coords = []
-
-    #on boucle temps que le joueur n'a pas donnée une coord de départ valide.
-    while (valide_dep != 1):
-        t_dep = int(input("Choisis la tour de départ: "))
-        if (0 <= t_dep <= 2 and ((len(plateau[t_dep]) != 0))):
-            valide_dep = 1
-        elif ((len(plateau[t_dep]) == 0)):
-            print("Invalide, tour vide.")
-        elif (0 > t_dep > 2):
-            print("Invalide, la tour n'existe pas.")
-    coords.append(t_dep)
-
-    #on boucle temps que le joueur n'a pas donnée une coord de départ valide.
-    while (valide_arr != 1):
-        t_arriv = int(input("Choisis la tour d'arrivée: "))
-        if (0 <= t_arriv <= 2):
-            if (len(plateau[t_arriv]) == 0):
-                valide_arr = 1
-            elif (plateau[t_dep][len(plateau[t_dep])-1] < plateau[t_arriv][len(plateau[t_arriv])-1]):
-                valide_arr = 1
-    coords.append(t_arriv)
-
-    return coords
-
-
-def jouer_un_coup(plateau, n):
-    #on recupére les coordonnées de deplacement fournis par le joueur.
-    coords = lire_coords(plateau)
-
-    #on récupère la valeur de depart demandé par le joueur.
-    val = plateau[coords[0]][len(plateau[coords[0]])-1]
-
-    #on supprime la position initiale du disque sur notre plateau.
-    efface_disque(val, plateau,n)
-
-    #on déplace notre disque sur sa nouvelle position dans notre liste representant notre plateau.
-    plateau[coords[0]].remove(val)
-    plateau[coords[1]].append(val)
-
-    #on dessine la nouvelle position de notre disque.
-    dessine_disque(val, plateau, n)
-
-    return coords
-
-
-def boucle_jeu(plateau, n):
-    #la variable win correspond à la condition de victoire, en fonction du plateau et de nbr de disque.
-    win = verifier_victoire(plateau,n)
-
-    #creation du dictionnaire qui nous permet de recuperere la paire de mouvement du joueur, en fonction du coup.    "PARTIE D"
-    coups = {}      # "PARTIE D"
-
-    #compteur de coups joué.
-    cpt = 1 
-
-    #variable qui nous sert de booléen d'annulation.
-    annuler = 0
-
-    #on initialise le nbr de coup max à 10.
-    cpt_max = 10
-
-    #on boucle temps que le joueur n'a pas gagné ou que le nbr max de coup n'est pas atteind.
-    while (win != True) and (cpt <= cpt_max):
-        print("Coup numéro ",cpt)
-
-        #recupère les coordonées donnée par le joueur au coup cpt, cela nous permet de faire un suivi 
-        #des coups qu'on pourra annuler par la suite.
-        coups[cpt] = jouer_un_coup(plateau,n)       #"PARTIE D"
-
-        #on propose a l'utilisateur de d'annuler son coup.
-        annuler = int(input("Veux-tu annuler ce coup ? (1/0) "))
-
-        #si il accepte, on appelle notre fonction annuler_dernier_coup et on decremente notre compteur.
-        if (annuler == 1):
-            annuler_dernier_coup(coups, cpt, plateau, n)
-            cpt += -1
-        
-        #on remette notre variable annuler à 0 afin d'éviter des problèmes booleen au prochain tour de boucle.
-        annuler = 0
-
-        #on verifie si on a reussi notre jeu, on stock  le resultat dans une variable `win`.
-        win = verifier_victoire(plateau,n)
-        cpt += 1
-    
-    #si le joueur à joué trop de coups, il a perdu.
-    if (cpt >= cpt_max):
-        print("Désolé tu as perdu !")
-    
-    #sinon il a gagné.
-    else:
-        print("Formidable ! tu as gagné en:",cpt,"coups ! \nTu es vraiment beaucoup trop fort.")
-        nom_joueur = input("Quel est ton nom jeune joueur ?")
-
-    #on ajoute le score de 'nom_joueur' dans notre txt avec l'aide de la fonction 'score_joueur'.
-    score_joueur(nom_joueur, str(n), str(cpt))
-
-
-#definition d'une fonction main comme demandé.
-def main():
-    print("-- Bienvenue dans les Tours de Hanoi --")
-    n = int(input("Avec combien de disque souhaites-tu jouer ? "))
-    liste_plateau = init(n)
-    dessine_plateau(n)
-    dessine_config(liste_plateau, n)
-    boucle_jeu(liste_plateau, n)
-
-main()
-```
 
 # Partie D - Annulation de coups:
 
@@ -169,31 +49,18 @@ Afin de pouvoir faire se qui est demandé, nous avons récuperé directement les
 
 Notre fichier partie_d n'a donc que 1 fonction, nous l'avons modifier en prenant en argument le plateau et le nombre total de disque, ces nouveau arguments vous nous permettre d'appeler nos fonction `efface_disque` puis `dessine_disque`.
 
-```py
-from partie_b import *
-
-def annuler_dernier_coup(dict, num_der_tour, plateau, n):
-    #on place les valeurs joué dans un variable.
-    val = dict[num_der_tour]
-
-    #on efface le disque du plateau 
-    efface_disque(plateau[val[1]][len(plateau[val[1]])-1] ,plateau, n)
-    
-    #on supprime la clé et ses valeur du dictionnaire
-    del dict[num_der_tour]
-
-    #on retourne ces valeurs afin de d'avoir les valeurs d'annulation.
-    val.reverse()
-
-    #on change le disque de position dans le plateau.
-    plateau[val[1]] = plateau[val[0]]
-
-    #on redessine le disque à sa nouvelle position.
-    dessine_disque(plateau[val[1]][len(plateau[val[1]])-1] ,plateau , n)
-
-    #on décremente le compteur de tour directement dans la fonction `boucle_de_jeu`.
-```
+Nous n'avons pas fais la partie bonus.
 
 # Partie E - Fichier de scores et temps de jeu:
 
-Nous avons
+Nous avons eu des difficultés sur la manipulation de fichier, on a commencé par utiliser un dictionnaire puis nous l'avons mis dans un fichier avec le module `pickle`, mais nous n'avons pas réussi.
+
+Pour ne pas perdre trop de temps on à écrit en pure dans un fichier déjà existant, ce n'est pas idéal mais ça fonctionne.
+
+Nous n'avons pas fais de scoreboard par faute de temps.
+
+# Partie F - Jeu automatique, fonction récursive:
+
+Nous avons créer une 1ere fonction `IA` va va créer une liste de liste avec tous les mouvements à effectuer pour résoudre nos tours de Hanoi en fonction du nombre de disque, on a aussi fais une fonction `dessine_IA` qui dessine avec le module Turtle les déplacement fourni par notre IA, on a implementé une option dans notre boucle de jeu permettant au joueur de voir la solution complète.
+
+Nous avons utillisé le principe de récursion pour faire cette liste de liste, nous n'avons pas rencontré de problème car Nicolas a déjà fait des programmes utilisant la récursion dans d'autres languages de programmation.

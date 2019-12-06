@@ -58,7 +58,7 @@ UE INF101: Algorithmique et Programmation en Python.
 - [x] 2 - Implémenter `jouer_un_coup`.
 - [x] 3 - Implémenter `boucle_jeu`.
 - [x] 3 (OPTION 1) - Implémenter un nbr de coup max à jouer.
-- [ ] 3 (OPTION 2) - Implémenter une option d'abandon.
+- [x] 3 (OPTION 2) - Implémenter une option d'abandon.
 - [x] 4 - Implémenter un programme principal qui demande un nbr de disque souhaité et qui intialise le plateau, le dessine et fini par lancer le jeu.
   
 ### ~Partie D: annulation de coups~
@@ -77,8 +77,8 @@ UE INF101: Algorithmique et Programmation en Python.
 - [ ] 5 - Implémenter une fonction qui calcul le temps moyen de reflexion du joueur.
 - [ ] 6 - Implémenter une fonction qui affiche un tableau de score des joueurs ayant un faible temps de reflexion.
 
-### Partie F: Automatique, fonction récursive
+### ~Partie F: Automatique, fonction récursive~
 
 - [x] 1 - Implémenter `IA` qui sort une liste des mouvements à effectuer.
 - [x] 2 - Implémeter `dessine_IA`qui dessine la liste faite par `IA`.
-- [ ] 3 - Implémenter dans `boucle_de_jeu` une option solution qui s'affiche dans le joueur pert.
+- [x] 3 - Implémenter dans `boucle_de_jeu` une option solution qui s'affiche dans le joueur pert.
