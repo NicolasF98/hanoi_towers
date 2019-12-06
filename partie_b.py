@@ -26,11 +26,11 @@ def dessine_plateau(n):
     while(i != 3):
         turtle.forward(20 + ((40 + (30*(n-1)))/2))
         turtle.left(90)
-        turtle.forward(20 + (40 + (30*(n-1)))/2)
+        turtle.forward(20 + (40 + (30*(n)))/2)
         turtle.right(90)
         turtle.forward(6)
         turtle.right(90)
-        turtle.forward( 20 + (40 + (30*(n-1)))/2 )
+        turtle.forward( 20 + (40 + (30*(n)))/2 )
         turtle.left(90)
         turtle.forward((40 + (30*(n-1)))/2 )
         i += 1
