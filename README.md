@@ -1,21 +1,4 @@
-#RENDRE SUR CASEINE -> PROJET
-
-# -Rapport-
-Faire un Rapport (en pdf) qui: 
-- Enumère les difficultées rencontrés et les solutions trouvé.
-- Expliquer la repartition des taches dans le groupe.
-
-# -Code-
-Faire:
-- Faire un fichiers.py pour chaque partie.
-- Commenter le code.
-- Donner des noms de variable clairs.
-
-# -Compte rendu-
-- Expliquer l'approche général qui à permis de resoudre l'exo.
-- Inserer le code sous les explications.
-
-# INF101: Projet - Les tours de Hanoi
+# INF101: Projet de fin de semestre - Les tours de Hanoi
 Université de Grenoble, Licence Sciences & Technologies, 1ère année semestre 1.
 
 UE INF101: Algorithmique et Programmation en Python.
